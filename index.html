@@ -2,33 +2,78 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Nafiz Irfan Portfolio</title>
+  <title>Nafiz Irfan | Web Developer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    body { font-family: Arial, sans-serif; margin: 20px; line-height: 1.6; }
-    h1 { color: #2c3e50; }
-    h2 { color: #34495e; }
-    a { color: #2980b9; text-decoration: none; }
-    .project { margin-bottom: 15px; }
+    body { font-family: 'Poppins', sans-serif; margin: 0; padding: 0; line-height: 1.6; background: #f4f4f4; color: #333; }
+    header { background: #2980b9; color: white; padding: 60px 20px; text-align: center; }
+    header h1 { margin: 0; font-size: 2.5em; }
+    header p { font-size: 1.2em; margin-top: 10px; }
+    section { padding: 60px 20px; max-width: 1000px; margin: auto; }
+    h2 { text-align: center; margin-bottom: 40px; color: #2980b9; }
+    .projects, .skills { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
+    .project-card { background: white; padding: 20px; border-radius: 8px; width: 250px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: transform 0.3s; }
+    .project-card:hover { transform: translateY(-5px); }
+    .project-card a { text-decoration: none; color: #2980b9; font-weight: 600; }
+    .skills i { font-size: 2em; margin: 10px; color: #2980b9; }
+    footer { text-align: center; padding: 20px; background: #333; color: white; }
+    @media(max-width: 600px) { .projects, .skills { flex-direction: column; align-items: center; } }
   </style>
 </head>
 <body>
-  <h1>Hello, I'm Nafiz Irfan</h1>
-  <p>Welcome to my portfolio! Here you can see my projects and skills.</p>
 
-  <h2>Projects</h2>
-  <div class="project">
-    <h3>Project 1</h3>
-    <p>A web app that does XYZ.</p>
-    <a href="#">View on GitHub</a>
-  </div>
+  <!-- Header -->
+  <header>
+    <h1>Nafiz Irfan</h1>
+    <p>Web Developer | Mobile App Enthusiast | Portfolio Showcase</p>
+  </header>
 
-  <div class="project">
-    <h3>Project 2</h3>
-    <p>A mobile app for reading books.</p>
-    <a href="#">View on GitHub</a>
-  </div>
+  <!-- About Me -->
+  <section id="about">
+    <h2>About Me</h2>
+    <p>Hello! I'm Nafiz, a passionate web developer. I create modern, responsive websites and mobile apps that provide the best user experience. I love building projects that solve real problems and showcase my skills in HTML, CSS, JavaScript, and Laravel.</p>
+  </section>
 
-  <h2>Contact Me</h2>
-  <p>Email: <a href="mailto:your-email@example.com">your-email@example.com</a></p>
+  <!-- Projects -->
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="projects">
+      <div class="project-card">
+        <h3>Readify App</h3>
+        <p>A mobile app for reading books with multi-language support and built-in dictionary.</p>
+        <a href="#">View on GitHub <i class="fa fa-arrow-right"></i></a>
+      </div>
+      <div class="project-card">
+        <h3>Nursery E-Commerce</h3>
+        <p>An online platform for Yah Nursery & Landscape to manage inventory and sell plants.</p>
+        <a href="#">View on GitHub <i class="fa fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skills">
+      <i class="fa-brands fa-html5" title="HTML5"></i>
+      <i class="fa-brands fa-css3-alt" title="CSS3"></i>
+      <i class="fa-brands fa-js-square" title="JavaScript"></i>
+      <i class="fa-brands fa-laravel" title="Laravel"></i>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <p>Email: <a href="mailto:your-email@example.com">your-email@example.com</a></p>
+    <p>GitHub: <a href="https://github.com/your-username">github.com/your-username</a></p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2026 Nafiz Irfan. All Rights Reserved.
+  </footer>
+
 </body>
 </html>
