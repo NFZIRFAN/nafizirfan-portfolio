@@ -2,77 +2,396 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Nafiz Irfan | Web Developer</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nafiz Irfan | Full Stack Developer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    body { font-family: 'Poppins', sans-serif; margin: 0; padding: 0; line-height: 1.6; background: #f4f4f4; color: #333; }
-    header { background: #2980b9; color: white; padding: 60px 20px; text-align: center; }
-    header h1 { margin: 0; font-size: 2.5em; }
-    header p { font-size: 1.2em; margin-top: 10px; }
-    section { padding: 60px 20px; max-width: 1000px; margin: auto; }
-    h2 { text-align: center; margin-bottom: 40px; color: #2980b9; }
-    .projects, .skills { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
-    .project-card { background: white; padding: 20px; border-radius: 8px; width: 250px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: transform 0.3s; }
-    .project-card:hover { transform: translateY(-5px); }
-    .project-card a { text-decoration: none; color: #2980b9; font-weight: 600; }
-    .skills i { font-size: 2em; margin: 10px; color: #2980b9; }
-    footer { text-align: center; padding: 20px; background: #333; color: white; }
-    @media(max-width: 600px) { .projects, .skills { flex-direction: column; align-items: center; } }
+    :root {
+      --primary: #2563eb;
+      --secondary: #64748b;
+      --accent: #3b82f6;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text-dark: #0f172a;
+      --text-light: #475569;
+      --nav-height: 70px;
+    }
+
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.7;
+      background: var(--bg);
+      color: var(--text-dark);
+      overflow-x: hidden;
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      height: var(--nav-height);
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(10px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 10%;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .logo {
+      font-weight: 800;
+      font-size: 1.5rem;
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-light);
+      font-weight: 500;
+      transition: color 0.3s;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    /* Hero Section */
+    header {
+      padding: calc(var(--nav-height) + 100px) 10% 100px;
+      background: radial-gradient(circle at top right, #e0f2fe, transparent),
+                  radial-gradient(circle at bottom left, #eff6ff, transparent);
+      text-align: center;
+      position: relative;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: clamp(2.5rem, 8vw, 4rem);
+      font-weight: 800;
+      letter-spacing: -1px;
+      line-height: 1.1;
+      background: linear-gradient(to right, #1e40af, #3b82f6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    header p {
+      font-size: 1.25rem;
+      margin-top: 20px;
+      color: var(--text-light);
+      font-weight: 400;
+    }
+
+    .btn-main {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 14px 32px;
+      background: var(--primary);
+      color: white;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s;
+      box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.3);
+    }
+
+    .btn-main:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 20px 25px -5px rgba(37, 99, 235, 0.4);
+      background: #1d4ed8;
+    }
+
+    /* General Section Styling */
+    section {
+      padding: 100px 10%;
+      max-width: 1400px;
+      margin: auto;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 60px;
+      font-size: 2.25rem;
+      font-weight: 800;
+      position: relative;
+    }
+
+    h2::after {
+      content: '';
+      display: block;
+      width: 50px;
+      height: 4px;
+      background: var(--primary);
+      margin: 15px auto 0;
+      border-radius: 2px;
+    }
+
+    /* About Section */
+    .about-container {
+      background: var(--card-bg);
+      padding: 50px;
+      border-radius: 24px;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+      border: 1px solid rgba(0,0,0,0.03);
+    }
+
+    /* Project Cards */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+    }
+
+    .project-card {
+      background: var(--card-bg);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      border: 1px solid rgba(0,0,0,0.05);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-card:hover {
+      transform: translateY(-12px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    }
+
+    .project-img {
+      width: 100%;
+      height: 200px;
+      background-size: cover;
+      background-position: center;
+      background-color: #e2e8f0;
+    }
+
+    .project-info {
+      padding: 25px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-info h3 {
+      margin: 0 0 10px;
+      font-size: 1.4rem;
+    }
+
+    .project-info p {
+      color: var(--text-light);
+      font-size: 0.95rem;
+      margin-bottom: 20px;
+    }
+
+    .project-link {
+      margin-top: auto;
+      text-decoration: none;
+      color: var(--primary);
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: gap 0.3s;
+    }
+
+    .project-link:hover {
+      gap: 12px;
+    }
+
+    /* Skills Grid */
+    .skills-grid {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+
+    .skill-item {
+      text-align: center;
+      transition: transform 0.3s;
+    }
+
+    .skill-item:hover {
+      transform: translateY(-5px);
+    }
+
+    .skill-item i {
+      font-size: 3rem;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .fa-html5 { color: #e34c26; }
+    .fa-css3-alt { color: #264de4; }
+    .fa-js-square { color: #f7df1e; }
+    .fa-laravel { color: #ff2d20; }
+    .fa-php { color: #777bb4; }
+
+    /* Contact Section */
+    .contact-card {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto;
+      background: var(--text-dark);
+      color: white;
+      padding: 60px;
+      border-radius: 24px;
+    }
+
+    .contact-card h2 { color: white; margin-bottom: 30px; }
+    .contact-card h2::after { background: white; }
+
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      align-items: center;
+    }
+
+    .contact-links a {
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+      font-size: 1.1rem;
+      transition: color 0.3s;
+    }
+
+    .contact-links a:hover {
+      color: white;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 40px;
+      background: var(--bg);
+      color: var(--text-light);
+      font-size: 0.9rem;
+      border-top: 1px solid rgba(0,0,0,0.05);
+    }
+
+    @media(max-width: 768px) {
+      nav { padding: 0 5%; }
+      .nav-links { display: none; } /* Could add hamburger menu here */
+      section { padding: 60px 5%; }
+      .about-container { padding: 30px; }
+    }
   </style>
 </head>
 <body>
 
-  <!-- Header -->
+  <!-- Navigation -->
+  <nav>
+    <a href="#" class="logo">NI.</a>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
   <header>
-    <h1>Nafiz Irfan</h1>
-    <p>Web Developer | Mobile App Enthusiast | Portfolio Showcase</p>
+    <div class="hero-content">
+      <h1>Nafiz Irfan</h1>
+      <p>Crafting high-performance web experiences & mobile applications with precision and creativity.</p>
+      <a href="#projects" class="btn-main">View My Work</a>
+    </div>
   </header>
 
   <!-- About Me -->
   <section id="about">
     <h2>About Me</h2>
-    <p>Hello! I'm Nafiz, a passionate web developer. I create modern, responsive websites and mobile apps that provide the best user experience. I love building projects that solve real problems and showcase my skills in HTML, CSS, JavaScript, and Laravel.</p>
+    <div class="about-container">
+      <p>Hello! I'm Nafiz, a Full-Stack Developer dedicated to building modern, responsive digital products. With a strong foundation in <strong>Laravel</strong> and <strong>Modern JavaScript</strong>, I bridge the gap between complex backend logic and elegant user interfaces. I specialize in creating scalable systems that solve real-world operational challenges.</p>
+    </div>
   </section>
 
   <!-- Projects -->
   <section id="projects">
-    <h2>Projects</h2>
-    <div class="projects">
+    <h2>Featured Projects</h2>
+    <div class="projects-grid">
+      
+      <!-- Project 1 -->
       <div class="project-card">
-        <h3>Readify App</h3>
-        <p>A mobile app for reading books with multi-language support and built-in dictionary.</p>
-        <a href="#">View on GitHub <i class="fa fa-arrow-right"></i></a>
+        <div class="project-img" style="background-image: url('https://images.unsplash.com/photo-1586281380349-632531db7ed4?auto=format&fit=crop&q=80&w=800')"></div>
+        <div class="project-info">
+          <h3>E-Commerce Management System Using Just-In-Time</h3>
+          <p>A high-performance inventory management suite featuring real-time stock tracking, automated order processing, and advanced reporting analytics.</p>
+          <a href="https://filyn.amirul-hub.com" class="project-link" target="_blank">Launch System <i class="fa fa-external-link-alt"></i></a>
+        </div>
       </div>
-      <div class="project-card">
-        <h3>Nursery E-Commerce</h3>
-        <p>An online platform for Yah Nursery & Landscape to manage inventory and sell plants.</p>
-        <a href="#">View on GitHub <i class="fa fa-arrow-right"></i></a>
-      </div>
+
     </div>
   </section>
 
   <!-- Skills -->
   <section id="skills">
-    <h2>Skills</h2>
-    <div class="skills">
-      <i class="fa-brands fa-html5" title="HTML5"></i>
-      <i class="fa-brands fa-css3-alt" title="CSS3"></i>
-      <i class="fa-brands fa-js-square" title="JavaScript"></i>
-      <i class="fa-brands fa-laravel" title="Laravel"></i>
+    <h2>Technical Expertise</h2>
+    <div class="skills-grid">
+      <div class="skill-item">
+        <i class="fa-brands fa-html5"></i>
+        <span>HTML5</span>
+      </div>
+      <div class="skill-item">
+        <i class="fa-brands fa-css3-alt"></i>
+        <span>CSS3</span>
+      </div>
+      <div class="skill-item">
+        <i class="fa-brands fa-js-square"></i>
+        <span>JavaScript</span>
+      </div>
+      <div class="skill-item">
+        <i class="fa-brands fa-laravel"></i>
+        <span>Laravel</span>
+      </div>
+      <div class="skill-item">
+        <i class="fa-brands fa-php"></i>
+        <span>PHP</span>
+      </div>
     </div>
   </section>
 
   <!-- Contact -->
   <section id="contact">
-    <h2>Contact Me</h2>
-    <p>Email: <a href="mailto:your-email@example.com">your-email@example.com</a></p>
-    <p>GitHub: <a href="https://github.com/your-username">github.com/your-username</a></p>
+    <div class="contact-card">
+      <h2>Let's Connect</h2>
+      <p style="margin-bottom: 30px; color: rgba(255,255,255,0.7)">I'm always open to discussing new projects or opportunities.</p>
+      <div class="contact-links">
+        <a href="mailto:nafizirfan03@gmail.com"><i class="fa fa-envelope"></i> nafizirfan03@gmail.com</a>
+        <a href="https://github.com/your-username"><i class="fa-brands fa-github"></i>https://github.com/NFZIRFAN</a>
+        <a href="https://linkedin.com/in/your-linkedin" target="_blank"><i class="fa-brands fa-linkedin"></i> www.linkedin.com/in/muhammad-nafiz-irfan-1807a7286</a>
+      </div>
+    </div>
   </section>
 
   <!-- Footer -->
   <footer>
-    &copy; 2026 Nafiz Irfan. All Rights Reserved.
+    <p>&copy; 2026 Nafiz Irfan. Built with passion & precision.</p>
   </footer>
 
 </body>
