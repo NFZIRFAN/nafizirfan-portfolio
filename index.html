@@ -104,6 +104,14 @@
       color: var(--primary-gold);
     }
 
+    /* Mobile Menu Toggle */
+    .menu-toggle {
+      display: none;
+      color: var(--text-white);
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
     /* Hero Section */
     .hero {
       height: 100vh;
@@ -358,10 +366,63 @@
       letter-spacing: 1px;
     }
 
+    /* Mobile responsiveness improvements */
     @media (max-width: 1024px) {
       .featured-project { grid-template-columns: 1fr; }
-      .project-image-container { height: 300px; }
+      .project-image-container { height: 350px; }
       .hero h1 { font-size: 4rem; }
+      .project-content { padding: 40px; }
+    }
+
+    @media (max-width: 768px) {
+      nav { padding: 0 5%; }
+      .menu-toggle { display: block; }
+      
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: var(--nav-height);
+        left: 0;
+        width: 100%;
+        background: var(--bg-dark);
+        flex-direction: column;
+        align-items: center;
+        padding: 40px 0;
+        gap: 25px;
+        border-bottom: 1px solid var(--glass-border);
+      }
+
+      .nav-links.active { display: flex; }
+
+      .section-main-heading { font-size: 2.2rem; margin-bottom: 50px; }
+      
+      .hero h1 { font-size: 3.2rem; }
+      .hero p { font-size: 1rem; }
+      
+      .cta-group { flex-direction: column; width: 100%; max-width: 300px; }
+      .btn { text-align: center; }
+
+      .services-grid { padding: 0 5%; }
+      .service-card { padding: 30px; }
+
+      .stats-bar { 
+        flex-direction: column; 
+        gap: 40px; 
+        text-align: center; 
+        padding: 60px 5%;
+        margin: 60px 0;
+      }
+      .stat-item h4 { font-size: 2.5rem; }
+
+      .project-showcase { padding: 60px 5%; }
+      .project-image-container { height: 250px; }
+      .project-content h3 { font-size: 1.8rem; }
+
+      .contact-container { padding: 60px 5%; }
+      .contact-box { padding: 40px 20px; }
+      .contact-box a { font-size: 1.2rem !important; word-break: break-all; }
+      .social-icons { gap: 15px; }
+      .social-icons a { width: 50px; height: 50px; font-size: 1.2rem; }
     }
   </style>
 </head>
@@ -371,8 +432,11 @@
   <div class="glow-2"></div>
 
   <nav>
-    <a href="#" class="logo">MUHAMMAD NAFIZ IRFAN</a>
-    <div class="nav-links">
+    <a href="#" class="logo">NAFIZ.</a>
+    <div class="menu-toggle" id="mobile-menu-btn">
+      <i class="fas fa-bars"></i>
+    </div>
+    <div class="nav-links" id="nav-menu">
       <a href="#about">About</a>
       <a href="#services">Services</a>
       <a href="#work">Work</a>
@@ -466,6 +530,30 @@
   <footer>
     <p>&copy; 2026 Muhammad Nafiz Irfan. Designed for the Modern Web.</p>
   </footer>
+
+  <script>
+    // Simple script for mobile menu toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const navMenu = document.getElementById('nav-menu');
+    const navLinks = document.querySelectorAll('.nav-links a');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+      const icon = mobileMenuBtn.querySelector('i');
+      icon.classList.toggle('fa-bars');
+      icon.classList.toggle('fa-times');
+    });
+
+    // Close menu when a link is clicked
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+        const icon = mobileMenuBtn.querySelector('i');
+        icon.classList.add('fa-bars');
+        icon.classList.remove('fa-times');
+      });
+    });
+  </script>
 
 </body>
 </html>
