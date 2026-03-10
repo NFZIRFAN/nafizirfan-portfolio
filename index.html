@@ -414,8 +414,17 @@
       }
       .stat-item h4 { font-size: 2.5rem; }
 
+      /* Fixed edge-touching issue on mobile */
       .project-showcase { padding: 60px 5%; }
-      .project-image-container { height: 250px; }
+      .featured-project { 
+        border-radius: 12px; 
+        margin: 0 auto;
+        width: 100%;
+      }
+      .project-image-container { 
+        height: 250px; 
+        border-radius: 12px 12px 0 0; 
+      }
       .project-content h3 { font-size: 1.8rem; }
 
       .contact-container { padding: 60px 5%; }
@@ -432,7 +441,7 @@
   <div class="glow-2"></div>
 
   <nav>
-    <a href="#" class="logo">IRFAN</a>
+    <a href="#" class="logo">NAFIZ.</a>
     <div class="menu-toggle" id="mobile-menu-btn">
       <i class="fas fa-bars"></i>
     </div>
